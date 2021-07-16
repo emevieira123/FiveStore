@@ -12,6 +12,10 @@ export default function Home() {
       <Menu />
 
       <div className="container2">
+        <div className="logo">
+          <img src="./assets/logoFiveStore.png" alt="" />
+        </div>
+
         <p>Vem ai a maior liquidação de todos os tempos, com produtos com desconto de até</p>
         <h1 id="promotionText1">70%</h1>
         <h3 id="promotionText2">OFF</h3>
@@ -25,7 +29,7 @@ export default function Home() {
           offset={-70}
           duration={500}
         >
-          <button>Cadastrar-se</button>
+          <button>Inscreva-se</button>
         </Link>
       </div>
     </div>
