@@ -1,7 +1,6 @@
 import Contact from "../Contact/contact"
 import Home from "../Home/home"
-
-
+import Products from "../Product/product";
 
 const Sections = () => {
   return (
@@ -9,6 +8,9 @@ const Sections = () => {
       <section>
         <section id="home">
           <Home />
+        </section>
+        <section id="product">
+          <Products />
         </section>
         <section id="contact">
           <Contact />

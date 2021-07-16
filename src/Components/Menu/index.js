@@ -18,6 +18,16 @@ const Menu = () => {
       </Link>
       <Link
         activeClass="active"
+        to="product"
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={500}
+      >
+        <button>Produtos</button>
+      </Link>
+      <Link
+        activeClass="active"
         to="contact"
         spy={true}
         smooth={true}
