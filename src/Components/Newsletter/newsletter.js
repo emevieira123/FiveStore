@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 import './style.css';
 
@@ -7,17 +9,42 @@ export default function Newsletter() {
   const [email, setEmail] = useState('');
 
   function handleInscrever(e) {
+    const MySwal = withReactContent(Swal)
 
     e.preventDefault();
 
-    if (usuario && email != null) {
-      localStorage.setItem('Name', JSON.stringify(usuario));
-      localStorage.setItem('E-mail', JSON.stringify(email));
-      alert('Cadastrado com sucesso!')
-    } else {
-      alert('ERROR - Verifique os dados e tente novamente!')
+    let nome = document.getElementById("nome").value;
+    let email = document.getElementById("email").value;
+
+    if (nome === '' || email === '') {
+      let campoEmBranco = (nome === '') ? 'nome' : 'email';
+      mensagemRetorno('error', `Falha, Verifique o campo de  ${campoEmBranco}.`);
+      return;
     }
 
+    let dadosInseridos = {
+      nome: nome,
+      email: email
+    };
+
+    localStorage.setItem('dataForm', JSON.stringify(dadosInseridos));
+    mensagemRetorno('success', "Cadastro realizado com sucesso!!!");
+
+    document.getElementById("nome").value = '';
+    document.getElementById("email").value = '';
+
+    function mensagemRetorno(tipo, msg) {
+      MySwal.fire({
+        position: 'center',
+        icon: tipo,
+        title: '',
+        text: msg,
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true
+      });
+
+    }
   }
 
   return (
@@ -28,8 +55,8 @@ export default function Newsletter() {
 
       <div className="formNewsletter">
         <form>
-          <input type="text" placeholder="Nome" value={usuario} onChange={e => setUsuario(e.target.value)} required />
-          <input type="email" placeholder="E-mail" value={email} onChange={e => setEmail(e.target.value)} required />
+          <input type="text" placeholder="Nome" id="nome" value={usuario} onChange={e => setUsuario(e.target.value)} required />
+          <input type="email" placeholder="E-mail" id="email" value={email} onChange={e => setEmail(e.target.value)} required />
           <button type="button" onClick={handleInscrever}>Inscrever</button>
         </form>
       </div>
