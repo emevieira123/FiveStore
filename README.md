@@ -18,3 +18,7 @@ Criar um sistema de e-commerce para cadastro de email na landing page para receb
 - Não é preciso ter domínio próprio e recomendamos o Netlify para hospedagem.
 # Projeto FiveStore
 
+>- Link: https://fivestore.netlify.app/
+
+Tecnologia utilizada para o desenvolvimento foi o ReactJS.
+
